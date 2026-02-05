@@ -17,3 +17,5 @@ scipy
 opencv-python-headless
 numpy
 scikit-image
+requests
+python-dotenv
