@@ -55,11 +55,10 @@ with st.sidebar:
     participants = [p.strip() for p in participants_input.split(',') if p.strip()]
     
     st.subheader("2. Model AI")
-    model_choice = st.selectbox("Engine", ["Florence-2", "Donut"])
+    model_choice = st.selectbox("Engine", ["Donut", "Florence-2"])
 
 # --- MAIN PAGE ---
 st.title("🧾 Split Bill OCR")
-st.markdown("Upload nota, biarkan AI baca, lalu assign siapa yang makan.")
 
 # SECTION 1: UPLOAD & PREPROCESS
 st.subheader("📤 Upload Nota")
@@ -73,9 +72,9 @@ if uploaded_file is not None:
         
         col1, col2 = st.columns(2)
         with col1:
-            st.image(uploaded_file, caption="Original Image", use_column_width=True)
+            st.image(uploaded_file, caption="Original Image", use_container_width=True)
         with col2:
-            st.image(processed_image, caption="AI Ready (Lurus & Bersih)", use_column_width=True)
+            st.image(processed_image, caption="AI Ready (Lurus & Bersih)", use_container_width=True)
 
         if st.button("SCAN MENU & HARGA", type="primary", use_container_width=True):
             if not participants:
