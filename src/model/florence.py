@@ -16,7 +16,8 @@ class FlorenceModel(AIModel):
             MODEL_NAME, 
             trust_remote_code=True,
             torch_dtype=torch.float32, 
-            device_map=self.device
+            device_map=self.device,
+            attn_implementation="eager"
         )
         self.processor = AutoProcessor.from_pretrained(MODEL_NAME, trust_remote_code=True)
 
@@ -40,7 +41,7 @@ class FlorenceModel(AIModel):
             max_new_tokens=1024,
             do_sample=False,
             num_beams=3,
-            use_cache=True 
+            use_cache=False 
         )
         return generated_ids
 
