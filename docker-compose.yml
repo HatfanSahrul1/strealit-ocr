@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  streamlit-ocr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: streamlit-ocr-img
+    container_name: streamlit-ocr
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./src:/app/src
+    restart: unless-stopped

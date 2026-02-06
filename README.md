@@ -14,22 +14,27 @@ Aplikasi ini membutuhkan akses ke model dari Hugging Face. Silakan:
 3. Buat token baru (pilih "Fine-Grained")
 4. Simpan token tersebut, misal: `hf_xxxxxxxxxxxxxxxxx`
 
-## 3. Build Docker Image
-Buka terminal di folder project ini, lalu jalankan perintah berikut untuk membangun image Docker:
-
-```
 docker build -t receipt-ocr-app .
-```
-
-## 4. Jalankan Container dengan HF_TOKEN
-Jalankan container dengan environment variable `HF_TOKEN`:
-
-```
 docker run -p 8501:8501 -e HF_TOKEN=hf_xxxxxxxxxxxxxxxxx receipt-ocr-app
+
+## 3. Build & Jalankan dengan Docker Compose
+Buka terminal di folder project ini, lalu jalankan perintah berikut untuk build dan menjalankan aplikasi:
+
+```
+docker-compose up --build
+```
+
+Jika butuh environment variable (misal HF_TOKEN), bisa tambahkan pada file `.env` di root project:
+
+```
+HF_TOKEN=hf_xxxxxxxxxxxxxxxxx
 ```
 
 - Ganti `hf_xxxxxxxxxxxxxxxxx` dengan token Hugging Face Anda.
-- Port 8501 adalah default untuk aplikasi Streamlit. Jika aplikasi Anda menggunakan port lain, sesuaikan perintah di atas.
+- Port 8501 adalah default untuk aplikasi Streamlit. Jika aplikasi Anda menggunakan port lain, sesuaikan pada docker-compose.yml.
+
+Nama image: `streamlit-ocr-img`
+Nama container: `streamlit-ocr`
 
 ## 5. Akses Aplikasi
 Buka browser dan akses:
