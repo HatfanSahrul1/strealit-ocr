@@ -1,3 +1,6 @@
+# SMART SPLITBILL AI 
+## [Video Demo](https://drive.google.com/file/d/1Vn4yLjoarXs5yLVy3hx7Ejb3GWh4hskp/view?usp=drive_link)
+
 # Analisis dan Perbandingan Model
 
 ## Perbandingan Model Donut dan Florence
